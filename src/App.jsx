@@ -9,7 +9,7 @@ const App = () => {
   const [hours, setHours] = useState("");
   const [filterDate, setFilterDate] = useState("");
 
-  // get all reports when page loads
+  
   useEffect(() => {
     axios
       .get("http://localhost:5000/userget")
@@ -17,7 +17,7 @@ const App = () => {
       .catch((err) => console.log("error while getting", err));
   }, []);
 
-  // add new report
+  
   const handleSubmit = () => {
     if (!name || !disc || !date || !hours) {
       alert("please fill all fields");
@@ -40,7 +40,7 @@ const App = () => {
       .catch((err) => console.log("error while adding", err));
   };
 
-  // filter by date
+  
   const handleFilter = () => {
     if (!filterDate) {
       axios
@@ -55,10 +55,10 @@ const App = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <h2>Employee Daily Report</h2>
 
-      {/* form to add report */}
+      
       <div>
         <input
           type="text"
@@ -86,8 +86,8 @@ const App = () => {
         <button onClick={handleSubmit}>Submit</button>
       </div>
 
-      {/* filter by date */}
-      <div style={{ marginTop: "20px" }}>
+      
+      <div>
         <input
           type="date"
           value={filterDate}
@@ -106,8 +106,8 @@ const App = () => {
         </button>
       </div>
 
-      {/* table to show reports */}
-      <table border={2} style={{ marginTop: "20px", width: "100%" }}>
+      
+      <table border={2}>
         <thead>
           <tr>
             <th>Name</th>
